@@ -30,10 +30,11 @@ ColorMap<br>
 
       
       Isovalue<br>
-      <input type="range" min="0" max="1" step="0.01" value="0.5" id="isovalue" 
-                                         oninput="display_isovalue(this.value)" onchange="display_isovalue(this.value)"/><br>
+      
       isovalue: <input type="number" value="128" id="numberOfIsovalue"
                                           oninput="change_BoxValue(this.value)" onchange="change_BoxValue(this.value)"/>
+      <input type="range" min="0" max="1" step="0.01" value="0.5" id="isovalue" 
+                                         oninput="display_isovalue(this.value)" onchange="display_isovalue(this.value)"/><br>
       <button id="change-isovalue-button" onclick="setvalue()" style="font-family=Arial;"> Apply</button>
 
       <br>
@@ -178,11 +179,11 @@ ColorMap<br>
         main.set_plane_color(isovalue);
       }
       
-      function change_BoxValue(surfaces){
+      function change_BoxValue(value){
         if(value >= 0 && value <= 255){
           slider_value = value / 255;
           isovalue_slider.value = slider_value;
-          main.set_plane_color(value);
+          main.set_plane_color(slider_value);
         }
       }
       
